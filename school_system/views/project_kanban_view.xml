@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="project_project_kanban_inherit_school" model="ir.ui.view">
+        <field name="name">project.project.kanban.inherit.school</field>
+        <field name="model">project.project</field>
+
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+
+        <field name="arch" type="xml">
+
+            <xpath expr="//t[@t-name='card']//footer" position="inside">
+
+                <a t-attf-href="/web#id=#{record.id.value}&amp;model=project.project&amp;view_type=form"
+                    target="_blank"
+                    class="btn btn-sm btn-primary ms-auto"
+                    title="Open project in new tab"
+                    onclick="event.stopPropagation()">
+                    Open in New Tab
+                </a>
+
+            </xpath>
+
+        </field>
+
+    </record>
+
+</odoo>
