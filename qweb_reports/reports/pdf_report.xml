@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="qweb_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <t t-esc="doc.partner_id.name"/>
+
+                    <t t-foreach="doc.move_ids_without_package" t-as="move">
+                        <p>
+                            <t t-esc="move.product_id.display_name"/>
+                            <t t-esc="move.product_uom_qty"/>
+                        </p>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="qweb_report_temp" model="ir.actions.report">
+        <field name="name">pdf report</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qweb_reports.qweb_report_template</field>
+        <field name="report_file">qweb_reports.qweb_report_template</field>
+        <field name="print_report_name">'pdf-report'</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
