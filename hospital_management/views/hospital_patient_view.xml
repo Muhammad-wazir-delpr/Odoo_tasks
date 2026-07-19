@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hospital_patient_tree_view" model="ir.ui.view">
+            <field name="name">hospital_patient tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="phone"/>
+                    <field name="blood_group"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="hospital_patient_search_view" model="ir.ui.view">
+            <field name="name">hospital_patient search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="blood_group"/>
+
+                    <filter string="Name" name="name" domain="[('name', '=', 'name')]"/>
+                    <filter string="Blood_group" name="blood_group" domain="[('blood_group', '=', 'blood_group')]"/>
+
+                    <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
+                    <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="gender" name="gender" context="{'group_by':'gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hospital_patient_form_view" model="ir.ui.view">
+            <field name="name">hospital_patient form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_appointment_wizard)d" string="Quick Appointment"
+                                type="action" class="btn-success"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!-- Appointment stat button -->
+                            <button name="action_view_appointments" type="object"
+                                    class="oe_stat_button" icon="fa-calendar">
+
+                                <field name="appointment_count" widget="statinfo" string="Appointments"/>
+                            </button>
+                        </div>
+
+                        <field name="patient_id" readonly="1"/>
+                        <group>
+                            <group>
+                                <field name="image"/>
+                                <field name="name"/>
+                                <field name="date_of_birth"/>
+                                <field name="computed_age" readonly="1"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="blood_group"/>
+                                <field name="address"/>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hospital_patient" model="ir.actions.act_window">
+            <field name="name">Hospital Patient</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="hospital_patient_sub"
+                  name="Patients"
+                  parent="hospital_patient"
+                  action="action_hospital_patient"/>
+
+    </data>
+</odoo>

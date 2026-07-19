@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="dashboard_banner_template">
+        <div class="o_kanban_dashboard_header" style="background-color: #f4f6f9; padding: 25px; border-bottom: 1px solid #e3e6f0; margin-bottom: 20px; font-family: 'Inter', 'Outfit', sans-serif;">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Total Patients Card -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card border-0 shadow-sm" style="border-radius: 12px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                            <div class="card-body text-center" style="padding: 25px 20px;">
+                                <div class="mb-3">
+                                    <i class="fa fa-users fa-3x" style="opacity: 0.9; color: rgba(255, 255, 255, 0.9);"></i>
+                                </div>
+                                <h2 style="font-weight: 800; font-size: 32px; margin: 0; letter-spacing: -0.5px;"><t t-out="total_patients"/></h2>
+                                <p style="font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; margin: 8px 0 0 0; opacity: 0.95;">Total Patients</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Today Appointments Card -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card border-0 shadow-sm" style="border-radius: 12px; background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                            <div class="card-body text-center" style="padding: 25px 20px;">
+                                <div class="mb-3">
+                                    <i class="fa fa-calendar-check-o fa-3x" style="opacity: 0.9; color: rgba(255, 255, 255, 0.9);"></i>
+                                </div>
+                                <h2 style="font-weight: 800; font-size: 32px; margin: 0; letter-spacing: -0.5px;"><t t-out="today_appointments"/></h2>
+                                <p style="font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; margin: 8px 0 0 0; opacity: 0.95;">Today's Appointments</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Total Revenue Card -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card border-0 shadow-sm" style="border-radius: 12px; background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); color: white; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                            <div class="card-body text-center" style="padding: 25px 20px;">
+                                <div class="mb-3">
+                                    <i class="fa fa-money fa-3x" style="opacity: 0.9; color: rgba(255, 255, 255, 0.9);"></i>
+                                </div>
+                                <h2 style="font-weight: 800; font-size: 32px; margin: 0; letter-spacing: -0.5px;"><t t-out="total_revenue"/></h2>
+                                <p style="font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; margin: 8px 0 0 0; opacity: 0.95;">Total Revenue</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Doctors Card -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card border-0 shadow-sm" style="border-radius: 12px; background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); color: white; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                            <div class="card-body text-center" style="padding: 25px 20px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                <div class="mb-2">
+                                    <i class="fa fa-user-md fa-2x" style="opacity: 0.9; color: rgba(255, 255, 255, 0.9);"></i>
+                                </div>
+                                <h4 style="font-weight: 700; font-size: 15px; margin: 0; line-height: 1.4; word-break: break-all;"><t t-out="top_doctors"/></h4>
+                                <p style="font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; margin: 8px 0 0 0; opacity: 0.95;">Top Doctors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

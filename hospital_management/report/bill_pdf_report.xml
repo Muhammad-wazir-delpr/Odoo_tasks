@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_hospital_bill_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3>
+                            Appointment :
+                            <span style="margin-left: 20px;" t-esc="doc.appointment_id.patient_id.name"/>
+                        </h3>
+                        <h4>
+                            Consultation Fee :
+                            <span style="margin-left: 20px;" t-esc="doc.consultation_fee"/>
+                        </h4>
+                        <h4>
+                            Medicine Charges :
+                            <span style="margin-left: 20px;" t-esc="doc.medicine_charges"/>
+                        </h4>
+                        <h4>
+                            Total Amount :
+                            <span style="margin-left: 20px;" t-esc="doc.total_amount"/>
+                        </h4>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_hospital_bill_temp" model="ir.actions.report">
+        <field name="name">Bill Invoice</field>
+        <field name="model">hospital.bill</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hospital_management.report_hospital_bill_template</field>
+        <field name="report_file">hospital_management.report_hospital_bill_template</field>
+        <field name="print_report_name">'pdf-report'</field>
+        <field name="binding_model_id" ref="hospital_management.model_hospital_bill"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

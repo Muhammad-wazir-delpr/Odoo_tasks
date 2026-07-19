@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hospital_prescription_tree_view" model="ir.ui.view">
+            <field name="name">Hospital_Prescription tree</field>
+            <field name="model">hospital.prescription</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="appointment_id"/>
+                    <field name="medicine"/>
+                    <field name="dosage"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="hospital_prescription_form_view" model="ir.ui.view">
+            <field name="name">Hospital_Prescription form</field>
+            <field name="model">hospital.prescription</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="appointment_id"/>
+                            <field name="medicine"/>
+                            <field name="dosage"/>
+                            <field name="instructions"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hospital_prescription" model="ir.actions.act_window">
+            <field name="name">Prescription</field>
+            <field name="res_model">hospital.prescription</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="hospital_prescription_parent"
+                  name="Hospital Prescription"
+                  parent="hospital_management_parent"/>
+
+        <menuitem id="hospital_prescription_sub"
+                  name="Prescription"
+                  action="action_hospital_prescription"
+                  parent="hospital_prescription_parent"/>
+    </data>
+</odoo>

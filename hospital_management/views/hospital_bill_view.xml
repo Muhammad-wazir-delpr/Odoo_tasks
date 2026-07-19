@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hospital_bill_tree_view" model="ir.ui.view">
+            <field name="name">Hospital_Bill tree</field>
+            <field name="model">hospital.bill</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="appointment_id"/>
+                    <field name="consultation_fee"/>
+                    <field name="medicine_charges"/>
+                    <field name="total_amount"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="hospital_bill_form_view" model="ir.ui.view">
+            <field name="name">Hospital_Bill form</field>
+            <field name="model">hospital.bill</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_send_bill_email" string="Send Email" class="btn-primary" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="appointment_id"/>
+                                <field name="consultation_fee"/>
+                                <field name="medicine_charges"/>
+                                <field name="total_amount"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hospital_bill" model="ir.actions.act_window">
+            <field name="name">Hospital Bill</field>
+            <field name="res_model">hospital.bill</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="hospital_bill_parent"
+                  name="Bills"
+                  action="action_hospital_bill"
+                  parent="hospital_prescription_parent"/>
+    </data>
+</odoo>

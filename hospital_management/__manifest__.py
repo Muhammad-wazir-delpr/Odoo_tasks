@@ -1,0 +1,33 @@
+{
+    'name': 'Hospital Management',
+    'version': '1.0',
+    'sequence' : -100,
+    'category': 'Hospital Management',
+    'summary': 'Hospital Management',
+    'description': " This module is for hospital needs",
+    'depends': ['base', 'mail'],
+    'data': [
+        'security/record_rules.xml',
+        'security/ir.model.access.csv',
+        'data/hospital_patient_sequence.xml',
+        'data/mail_template_data.xml',
+        'data/cron_jobs.xml',
+        'views/menus.xml',
+        'wizard/appointment_wizard_view.xml',
+        'wizard/import_export_wizard_views.xml',
+        'views/hospital_patient_view.xml',
+        'views/hospital_doctor_view.xml',
+        'views/hospital_appointment_view.xml',
+        'views/hospital_prescription_view.xml',
+        'views/hospital_bill_view.xml',
+        'views/hospital_dashboard_templates.xml',
+        'views/hospital_dashboard_view.xml',
+
+        'report/patient_pdf_report.xml',
+        'report/appointment_pdf_report.xml',
+        'report/bill_pdf_report.xml',
+    ],
+    'installable' : True,
+    'application' : True,  
+
+}

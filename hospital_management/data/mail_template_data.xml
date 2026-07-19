@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Appointment Email Template -->
+        <record id="appointment_email_template" model="mail.template">
+            <field name="name">Appointment: Confirmation Email</field>
+            <field name="model_id" ref="hospital_management.model_hospital_appointment"/>
+            <field name="subject">Appointment Confirmation - {{ object.patient_id.name }}</field>
+            <field name="email_to">{{ object.patient_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; font-size: 14px; margin: 0px; padding: 0px;">
+                    <p>Dear <t t-out="object.patient_id.name"/>,</p>
+                    <p>Your appointment has been successfully scheduled. Here are the details:</p>
+                    <table style="width: 100%; max-width: 500px; border-collapse: collapse; margin-top: 10px;">
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Doctor</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><t t-out="object.doctor_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Appointment Date</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><t t-out="object.appointment_date"/></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <p>Thank you,</p>
+                    <p>Hospital Administration</p>
+                </div>
+            </field>
+        </record>
+
+        <!-- Bill Email Template -->
+        <record id="bill_email_template" model="mail.template">
+            <field name="name">Bill: Payment Invitation</field>
+            <field name="model_id" ref="hospital_management.model_hospital_bill"/>
+            <field name="subject">Hospital Bill for Appointment - {{ object.appointment_id.patient_id.name }}</field>
+            <field name="email_to">{{ object.appointment_id.patient_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; font-size: 14px; margin: 0px; padding: 0px;">
+                    <p>Dear <t t-out="object.appointment_id.patient_id.name"/>,</p>
+                    <p>A new bill has been generated for your appointment. Here are the details:</p>
+                    <table style="width: 100%; max-width: 500px; border-collapse: collapse; margin-top: 10px;">
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Appointment Date</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><t t-out="object.appointment_id.appointment_date"/></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Total Amount</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; color: #d9534f;"><t t-out="object.total_amount"/></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <p>Please pay the amount at your earliest convenience.</p>
+                    <p>Thank you,</p>
+                    <p>Hospital Finance Department</p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

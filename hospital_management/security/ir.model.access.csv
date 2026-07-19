@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_patient_receptionist,patient receptionist,model_hospital_patient,hospital_management.group_receptionist,1,1,1,1
+access_doctor_doctor,doctor doctor,model_hospital_doctor,hospital_management.group_doctor,1,1,0,0
+access_appointment_doctor,appointment doctor,model_hospital_appointment,hospital_management.group_doctor,1,1,1,0
+access_manager_patient,manager patient,model_hospital_patient,hospital_management.group_manager,1,1,1,1
+access_manager_doctor,manager doctor,model_hospital_doctor,hospital_management.group_manager,1,1,1,1
+access_manager_appointment,manager appointment,model_hospital_appointment,hospital_management.group_manager,1,1,1,1
+access_patient_doctor,patient doctor,model_hospital_patient,hospital_management.group_doctor,1,1,0,0
+access_doctor_receptionist,doctor receptionist,model_hospital_doctor,hospital_management.group_receptionist,1,0,0,0
+access_appointment_receptionist,appointment receptionist,model_hospital_appointment,hospital_management.group_receptionist,1,1,1,0
+access_hospital_prescription,access.hospital.prescription,model_hospital_prescription,,1,1,1,1
+access_hospital_bill,access.hospital.bill,model_hospital_bill,,1,1,1,1
+access_appointment_wizard,access.appointment.wizard,model_appointment_wizard,,1,1,1,1
+access_hospital_dashboard,access.hospital.dashboard,model_hospital_dashboard,,1,0,0,0
+access_import_patient_wizard,access.import.patient.wizard,model_import_patient_wizard,,1,1,1,1
+access_export_bill_wizard,access.export.bill.wizard,model_export_bill_wizard,,1,1,1,1
